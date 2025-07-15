@@ -86,3 +86,32 @@ public:
 };
 
 ```
+
+### 4th step
+
+野田さんの以下の指摘を見て、while の前後に空行を挿入しました。141 では指摘されていなかったので必要ないかもしれませんが…
+
+https://github.com/mptommy/coding-practice/pull/2/files/3f4ec18956cde81139bf79c18a575849545645c4#r2126273567
+
+```c++
+#include <set>
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        ListNode* node = head;
+        std::set<ListNode*> visited;
+
+        while (node) {
+            if (visited.contains(node)) {
+                return node;
+            }
+            visited.insert(node);
+            node = node->next;
+        }
+
+        return nullptr;
+    }
+};
+```
+
+
