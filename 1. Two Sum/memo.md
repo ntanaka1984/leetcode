@@ -140,3 +140,29 @@ public:
 };
 ```
 
+## 5th step
+
+先に解かれている方のコードを参照したところ、for ループを1回しか回さずに解いていたので私もそのようにしました。
+また、変数名`diff` を`complement` と改めました。
+
+参考にした回答
+https://github.com/ryosuketc/leetcode_grind75/pull/1/files/2c5161514b4561a34193852a2a218603b35ca734#diff-fb72ed84c22daaa065dd8aca8a790d2a4a20bd48c4db22d7605117f02be53c40
+
+
+```cpp
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        std::map<int, int> num_to_index;
+        for (int i = 0;i < nums.size();i++) {
+            int complement = target - nums[i];
+            if (num_to_index.contains(complement)) {
+                return {i, num_to_index[complement]};
+            }
+            num_to_index[nums[i]] = i;
+        }
+        return {};
+    }
+};
+```
+
