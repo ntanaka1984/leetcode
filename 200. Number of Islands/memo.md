@@ -15,7 +15,7 @@
 
 21行目の
 ```c++
-      vector<bool>& is_visited_row(width, false);
+      vector<bool> is_visited_row(width, false);
       is_visited.push_back(is_visited_row);
 ```
 はpush_back するときにコピーが発生して遅くなりそうなのですが、どう書いたらいいでしょうか？`is_visited.push_back(&is_visited_row)`とするとコンパイラエラーが出ました。
