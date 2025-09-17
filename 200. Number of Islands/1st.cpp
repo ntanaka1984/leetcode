@@ -15,7 +15,6 @@ public:
         for (int i = 0; i < height; i++) {
             if (grid[i].size() != width) {
                 string error_message = "Invalid grid size.";
-                // replace x and y 
                 throw invalid_argument(error_message);
             }
             std::vector<bool> is_visited_row(width, false);
